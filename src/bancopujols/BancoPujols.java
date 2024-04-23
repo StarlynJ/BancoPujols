@@ -22,7 +22,7 @@ public class BancoPujols {
                 case 1 -> registrarCliente();
                 case 2 -> iniciarSesion();
                 case 3 -> salir = true;
-                default -> System.out.println("OpciÃ³n no vÃ¡lida. Intente de nuevo.");
+                default -> System.out.println("Opcion no va¡lida. Intente de nuevo.");
             }
         }
     }
@@ -30,36 +30,36 @@ public class BancoPujols {
     public static void mostrarPaginaPrincipal() {
         System.out.println("Bienvenido al Banco Pujols");
         System.out.println("1. Registrarse");
-        System.out.println("2. Iniciar SesiÃ³n");
+        System.out.println("2. Iniciar Sesion");
         System.out.println("3. Salir");
-        System.out.print("Seleccione una opciÃ³n: ");
+        System.out.print("Seleccione una opcion: ");
     }
 
     public static void registrarCliente() {
         System.out.println("\nRegistro de Cliente");
-        System.out.print("Ingrese su cÃ©dula (11 dÃ­gitos): ");
+        System.out.print("Ingrese su cedula (11 di­gitos): ");
         String cedula = scanner.nextLine();
         if (!validarLongitudCedula(cedula)) {
-            System.out.println("Longitud de cÃ©dula incorrecta. La cÃ©dula debe tener 11 dÃ­gitos.");
+            System.out.println("Longitud de cedula incorrecta. La cedula debe tener 11 digitos.");
             return;
         }
-        System.out.print("Ingrese su provincia (RepÃºblica Dominicana): ");
+        System.out.print("Ingrese su provincia (Republica Dominicana): ");
         String provincia = scanner.nextLine();
         if (!provinciaValida(provincia)) {
             System.out.println("Provincia incorrecta. Intente de nuevo.");
             return;
         }
-        System.out.print("Ingrese su PIN (4 dÃ­gitos): ");
+        System.out.print("Ingrese su PIN (4 di­gitos): ");
         int pin = scanner.nextInt();
         scanner.nextLine(); 
         if (!validarLongitudPIN(pin)) {
-            System.out.println("Longitud de PIN incorrecta. El PIN debe tener 4 dÃ­gitos.");
+            System.out.println("Longitud de PIN incorrecta. El PIN debe tener 4 di­gitos.");
             return;
         }
 
         clienteActual = new Cliente(cedula, provincia, pin);
         clientes.add(clienteActual);
-        System.out.println("Â¡Registro exitoso!");
+        System.out.println("¡Registro exitoso!");
         iniciarSesion();
     }
 
@@ -77,8 +77,8 @@ public class BancoPujols {
     }
 
     public static void iniciarSesion() {
-        System.out.println("\nInicio de SesiÃ³n");
-        System.out.print("Ingrese su cÃ©dula: ");
+        System.out.println("\nInicio de Sesion");
+        System.out.print("Ingrese su cedula: ");
         String cedula = scanner.nextLine();
         System.out.print("Ingrese su PIN: ");
         int pin = scanner.nextInt();
@@ -95,14 +95,14 @@ public class BancoPujols {
     }
 
     public static void mostrarMenuCliente() {
-        System.out.println("\nÂ¡Bienvenido, " + clienteActual.getCedula() + "!");
+        System.out.println("\n¡Bienvenido, " + clienteActual.getCedula() + "!");
         boolean salir = false;
         while (!salir) {
             System.out.println("1. Ver Saldo");
             System.out.println("2. Transferir Dinero");
             System.out.println("3. Pedir Dinero");
-            System.out.println("4. Cerrar SesiÃ³n");
-            System.out.print("Seleccione una opciÃ³n: ");
+            System.out.println("4. Cerrar Sesion");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcion) {
@@ -110,17 +110,17 @@ public class BancoPujols {
                 case 2 -> transferirDinero();
                 case 3 -> pedirDinero();
                 case 4 -> salir = true;
-                default -> System.out.println("OpciÃ³n no vÃ¡lida. Intente de nuevo.");
+                default -> System.out.println("Opcion no vo¡lida. Intente de nuevo.");
             }
         }
     }
 
     public static void transferirDinero() {
         System.out.println("\nTransferir Dinero");
-        System.out.print("Ingrese el nÃºmero de cuenta del destinatario (11 dÃ­gitos): ");
+        System.out.print("Ingrese el numero de cuenta del destinatario (11 di­gitos): ");
         String numeroCuenta = scanner.nextLine();
         if (numeroCuenta.length() != 11) {
-            System.out.println("NÃºmero de cuenta incorrecto. Debe tener 11 dÃ­gitos.");
+            System.out.println("Numero de cuenta incorrecto. Debe tener 11 di­gitos.");
             return;
         }
         
@@ -132,12 +132,12 @@ public class BancoPujols {
 
     public static void pedirDinero() {
         System.out.println("\nPedir Dinero");
-        System.out.print("Ingrese el nÃºmero de telÃ©fono del usuario al que le solicita dinero: ");
+        System.out.print("Ingrese el numero de telefono del usuario al que le solicita dinero: ");
         String numeroTelefono = scanner.nextLine();
         System.out.print("Ingrese el monto que desea solicitar: $");
         double monto = scanner.nextDouble();
         scanner.nextLine(); 
-        System.out.println("Se ha enviado una solicitud de $" + monto + " al usuario con el nÃºmero de telÃ©fono " + numeroTelefono);
+        System.out.println("Se ha enviado una solicitud de $" + monto + " al usuario con el numero de telefono " + numeroTelefono);
     }
 }
 
